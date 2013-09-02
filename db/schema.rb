@@ -11,42 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130902164548) do
+ActiveRecord::Schema.define(:version => 20130902201025) do
 
-  create_table "favorites", :force => true do |t|
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "gist_id"
+  create_table "follows", :force => true do |t|
+    t.integer  "inbound_user_id"
+    t.integer  "outbound_user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
-
-  add_index "favorites", ["gist_id", "user_id"], :name => "index_favorites_on_gist_id_and_user_id"
-
-  create_table "friends", :force => true do |t|
-    t.integer  "friend1_id", :null => false
-    t.integer  "friend2_id", :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "gist_files", :force => true do |t|
-    t.string   "name"
-    t.text     "body"
-    t.integer  "gist_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "gist_files", ["gist_id"], :name => "index_gist_files_on_gist_id"
-
-  create_table "gists", :force => true do |t|
-    t.string   "title"
-    t.integer  "author_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "gists", ["author_id"], :name => "index_gists_on_author_id"
 
   create_table "posts", :force => true do |t|
     t.text     "body",       :null => false

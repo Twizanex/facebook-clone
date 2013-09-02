@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  inbound_user_id: 1
+  outbound_user_id: 1
+
+two:
+  inbound_user_id: 1
+  outbound_user_id: 1

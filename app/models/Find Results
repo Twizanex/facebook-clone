@@ -1,0 +1,10 @@
+Searching 79 files for "new_auth_demo"
+
+/Users/harrisgani13/Desktop/Facebook/config/database.yml:
+    1  development:
+    2    adapter: postgresql
+    3:   database: facebook_clone_dev
+    4    host: localhost
+    5    pool: 5
+
+1 match in 1 file

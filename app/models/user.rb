@@ -9,6 +9,30 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many :posts,
+    :class_name => "Post",
+    :primary_key => :id,
+    :foreign_key => :author_id
+
+  has_many :inbound_follows,
+    :class_name => "Follow",
+    :primary_key => :id,
+    :foreign_key => :outbound_user_id
+
+  has_many :outbound_follows,
+    :class_name => "Follow",
+    :primary_key => :id,
+    :foreign_key => :inbound_user_id
+
+  has_many :inbound_followers,
+    :through => :inbound_follows,
+    :source => :inbound_follower
+
+  has_many :outbound_followers,
+    :through => :outbound_follows,
+    :source => :outbound_follower
+
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
 
