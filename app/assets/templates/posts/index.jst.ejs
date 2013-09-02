@@ -1,0 +1,16 @@
+<h1> News Feed </h1>
+
+<form class="new-status">
+  <textarea placeholder="What's on your mind?"></textarea>
+  <input type="submit">
+</form>
+
+<% posts.each(function(post) { %>
+  <%= post.escape("body")%>
+  <br>
+  <%= post.get("created_at").slice(0, 10) %>
+  <br>
+  <br>
+<% }) %>
+
+  
