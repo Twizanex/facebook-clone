@@ -24,11 +24,11 @@ class User < ActiveRecord::Base
     :primary_key => :id,
     :foreign_key => :inbound_user_id
 
-  has_many :inbound_followers,
+  has_many :outbound_followers,
     :through => :inbound_follows,
     :source => :inbound_follower
 
-  has_many :outbound_followers,
+  has_many :inbound_followers,
     :through => :outbound_follows,
     :source => :outbound_follower
 
