@@ -7,10 +7,13 @@ FacebookClone.Views.PostsIndex = Backbone.View.extend({
   },
 
   render: function () {
-    var renderedContent = this.template({posts: this.collection});
+    var renderedContent = this.template({
+      posts: this.collection,
+    });
     this.$el.html(renderedContent);
     return this;
   },
+
 
   savePost: function(event) {
     event.preventDefault();

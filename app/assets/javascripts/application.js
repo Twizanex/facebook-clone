@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializeJSON
+//= require jquery.timeago
 //= require underscore
 //= require backbone
 //= require facebook_clone

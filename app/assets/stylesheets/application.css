@@ -11,3 +11,25 @@
  *= require_self
  *= require_tree .
  */
+
+html {
+  font-family: 'Futura', sans-serif;
+}
+
+div.post {
+  border-width: 4px;
+  border-style: outset;
+  border-color: #800000;
+  background-color: white;
+  padding: 10px;
+  width: 350px;
+  height: 100px;
+}
+
+span.timeago {
+  font-style: italic;
+  color: gray;
+  font-size:13px;
+  float: right;
+  padding-top: 60px;
+}

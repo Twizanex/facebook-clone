@@ -9,11 +9,14 @@
 <br>
 
 <% _.each(posts.toArray().reverse(), function(post) { %>
-  <%= post.escape("body")%>
-  <br>
-  <%= post.get("created_at").slice(0, 10) %>
-  <br>
-  <br>
+  <div class="post">
+    <%= post.escape("body")%>
+    <br>
+    <span class="timeago"><%= jQuery.timeago(post.escape("created_at"))%></span>
+    <br>
+    <br>
+  </div>
 <% }) %>
+
 
   
