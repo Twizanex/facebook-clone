@@ -32,6 +32,11 @@ class User < ActiveRecord::Base
     :through => :outbound_follows,
     :source => :outbound_follower
 
+  has_many :likes,
+    :class_name => "Like",
+    :primary_key => :id,
+    :foreign_key => :user_id
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)

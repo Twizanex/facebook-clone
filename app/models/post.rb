@@ -7,4 +7,9 @@ class Post < ActiveRecord::Base
     :class_name => "User",
     :primary_key => :id,
     :foreign_key => :author_id
+
+  has_many :likes,
+    :class_name => "Like",
+    :primary_key => :id,
+    :foreign_key => :post_id
 end

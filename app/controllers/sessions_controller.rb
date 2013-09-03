@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       render :json => "Credentials were wrong"
     else
       self.current_user = user
-      redirect_to user_url(user)
+      redirect_to user_posts_url(current_user.id)
     end
   end
 
@@ -21,6 +21,4 @@ class SessionsController < ApplicationController
     redirect_to new_session_url
   end
 
-  def new
-  end
 end

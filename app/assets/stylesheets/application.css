@@ -30,7 +30,7 @@ html {
   float: right
 }
 
-div.post {
+div.post-indiv {
   border-width: 4px;
   border-style: outset;
   border-color: #800000;
@@ -51,4 +51,21 @@ span.timeago {
   font-size:13px;
   float: right;
   padding-top: 40px;
+}
+
+span.like-count {
+  color: #0066FF;
+  font-size: 15px;
+  float:left;
+  padding-top: 38px;
+  padding-right: 10px;
+}
+
+.like-form {
+  float: left;
+  margin-top: 35px;
+}
+
+.delete {
+  padding-left: 225px;
 }

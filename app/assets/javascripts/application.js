@@ -14,12 +14,24 @@
 //= require jquery_ujs
 //= require jquery.serializeJSON
 //= require jquery.timeago
-//= require underscore
-//= require backbone
-//= require facebook_clone
-//= require_tree ../templates
-//= require_tree ./models
-//= require_tree ./collections
-//= require_tree ./views
-//= require_tree ./routers
 //= require_tree .
+
+
+
+  $("form.new-post").on("click", '"input type="submit"', 
+    debugger
+    function (event) {
+      event.preventDefault();
+      var formData = $(this.form).serializeJSON().post;
+      var user_id = $(this.form).attr("data-user-id");
+
+      $.ajax({
+        url: "/users/" + user_id + "/posts",
+        type: "POST",
+        data: formData,
+        success: function () {
+          $(".posts-all").prepend('<div class="post-indiv">' + '</div>')
+          console.log("here");
+        }
+      })
+    });

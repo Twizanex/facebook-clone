@@ -1,25 +1,37 @@
 <h1> News Feed </h1>
 
-<form action="<%=user_posts_url(current_user.id)%>" method="post">
-
-  <input type= "hidden" name= "authenticity_token" value= "<%=form_authenticity_token%>">
-
+<form class="new-post" action="<%=user_posts_url(current_user.id)%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
   <textarea name="post[body]" placeholder="What's on your mind?"></textarea>
-
   <br>
   <input type="submit" value="Share">
 </form>
 
-<% @posts.reverse.each do |post| %>
-  <div class="post">
-    <span class="author"><%= post.user.username %></span>
-    <br>
+<div class="posts-all">
+  <% @posts.reverse.each do |post| %>
+    <div class="post-indiv">
+      <span class="author"><%= post.user.username %></span>
+      <br>
+      <%=post.body%>
+      <br>
 
-    <%= post.body  %>
-    <br>
+      <%@like = Like.find_by_user_id_and_post_id(current_user.id, post.id)%>
+      <%if @like %>
+        <%=render "posts/unlike", :post => post, :like => @like%> 
+      <%else %> 
+        <%=render "posts/like", :post => post%>
+      <%end%>  
 
-    <span class="timeago">
-      <%= time_ago_in_words(post.created_at) %>
-    </span>
-  </div>
-<% end %>
+      <span class="timeago">
+        <%=time_ago_in_words(post.created_at)%>
+      </span>
+
+      <%if current_user.id == post.author_id%>
+        <%=render "posts/delete", :post => post%>
+      <%end%>
+
+    </div>
+  <% end %>
+</div>
+
+
