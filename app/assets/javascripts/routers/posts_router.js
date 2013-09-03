@@ -11,7 +11,7 @@ FacebookClone.Routers.Posts = Backbone.Router.extend({
     var postIndex = new FacebookClone.Views.PostsIndex({
       collection : this.collection
     })
-    $("body").html(postIndex.render().$el);
+    $(".content").html(postIndex.render().$el);
   }
 
 

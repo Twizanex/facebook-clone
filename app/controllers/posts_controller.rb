@@ -16,7 +16,16 @@ class PostsController < ApplicationController
       format.html { render :index }
       format.json { render :index, :handlers => :rabl }
     end
+  end
 
+  def create
+    params[:post][:author_id] = current_user.id
+    @post = Post.new(params[:post])
+    if @post.save
+      render :json => @post
+    else
+      render :json => @post.errors.full_messages, :status => 422
+    end
   end
  
 end
