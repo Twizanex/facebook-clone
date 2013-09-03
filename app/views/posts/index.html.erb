@@ -1,3 +1,25 @@
-<script type="application/json" id="bootstrapped-data">
-  <%= render(:file => 'posts/index', :formats => [:rabl]).html_safe %>
-</script>
+<h1> News Feed </h1>
+
+<form action="<%=user_posts_url(current_user.id)%>" method="post">
+
+  <input type= "hidden" name= "authenticity_token" value= "<%=form_authenticity_token%>">
+
+  <textarea name="post[body]" placeholder="What's on your mind?"></textarea>
+
+  <br>
+  <input type="submit" value="Share">
+</form>
+
+<% @posts.reverse.each do |post| %>
+  <div class="post">
+    <span class="author"><%= post.user.username %></span>
+    <br>
+
+    <%= post.body  %>
+    <br>
+
+    <span class="timeago">
+      <%= time_ago_in_words(post.created_at) %>
+    </span>
+  </div>
+<% end %>

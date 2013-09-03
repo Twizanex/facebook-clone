@@ -19,10 +19,6 @@ class UsersController < ApplicationController
 
   def show
     @posts = current_user.posts
-    # if params.include?(:id)
-    #   @user = User.find(params[:id])
-    # else
-    #   redirect_to user_url(current_user)
-    # end
+    render :show
   end
 end

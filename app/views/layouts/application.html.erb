@@ -9,10 +9,11 @@
 <body>
 
 <% if !current_user.nil? %>
-    <center>Logged in as: <%= current_user.username %></center>
-    <br>
-    <center><%= button_to "Logout", session_url, :method => :delete %></center>
-    <hr>
+  <div class="header"> 
+    <%= link_to "Home", user_posts_url %> |
+    <%= link_to current_user.username, user_url(current_user.id)%> |
+    <%= link_to "Logout", session_url, :method => :delete %>
+  </div>
 <% end %>
 
 <div class="content"></div>

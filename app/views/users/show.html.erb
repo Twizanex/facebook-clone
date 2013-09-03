@@ -1,6 +1,28 @@
 <h1><%=current_user.username %></h1>
 
+<form action="<%=user_posts_url(current_user.id)%>" method="post">
 
+  <input type= "hidden" name= "authenticity_token" value= "<%=form_authenticity_token%>">
+
+  <textarea name="post[body]" placeholder="What's on your mind?"></textarea>
+
+  <br>
+  <input type="submit" value="Share">
+</form>
+
+<% @posts.reverse.each do |post| %>
+  <div class="post">
+    <span class="author"><%= post.user.username %></span>
+    <br>
+
+    <%= post.body  %>
+    <br>
+
+    <span class="timeago">
+      <%= time_ago_in_words(post.created_at) %>
+    </span>
+  </div>
+<% end %>
 
 
 
