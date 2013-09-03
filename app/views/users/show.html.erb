@@ -11,8 +11,13 @@
   <% @posts.reverse.each do |post| %>
     <div class="post-indiv">
       <span class="author"><%= post.user.username %></span>
+
+      <%if current_user.id == post.author_id%>
+        <%=render "posts/delete", :post => post%>
+      <%end%>
+
       <br>
-      <%= post.body  %>
+      <%=post.body%>
       <br>
 
       <%@like = Like.find_by_user_id_and_post_id(current_user.id, post.id)%>
@@ -22,9 +27,9 @@
         <%=render "posts/like", :post => post%>
       <%end%> 
 
-      <%if current_user.id == post.author_id%>
-        <%=render "posts/delete", :post => post%>
-      <%end%>
+      <span class="timeago">
+        <%=time_ago_in_words(post.created_at)%>
+      </span>
 
     </div>
   <% end %>

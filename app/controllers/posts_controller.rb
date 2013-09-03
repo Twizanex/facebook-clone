@@ -31,5 +31,4 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to :back
   end
- 
 end

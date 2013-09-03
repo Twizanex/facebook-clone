@@ -37,10 +37,10 @@ div.post-indiv {
   background-color: white;
   padding: 10px;
   width: 350px;
-  height: 100px;
+  height: 175px;
 }
 
-span.author {
+span.author-post {
   font-size: 22px;
   color: #0066FF;
 }
@@ -67,5 +67,20 @@ span.like-count {
 }
 
 .delete {
-  padding-left: 225px;
+  float: right;
+}
+
+.author-comment {
+  color: #0066FF;
+  font-size: 15px;
+}
+
+div.comment {
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+  padding: 10px;
+  width: 270px;
+  height: 30px;
 }

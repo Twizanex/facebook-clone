@@ -1,0 +1,10 @@
+<%if post.comments.count >= 1%>
+  <span>Comments:</span>
+<%end%>
+
+<%post.comments.each do |comment|%>            
+  <div class="comment">
+    <span class="author-comment"><%comment.user.username%></span>
+    <span class="comment-body"><%=comment.body%></span>
+  </div>
+<%end%>
