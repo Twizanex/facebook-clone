@@ -1,6 +1,7 @@
 FacebookClone.Routers.Posts = Backbone.Router.extend({
   routes: {
-    "" : "indexPosts"
+    "" : "indexPosts",
+    "/users/:id": "showUser"
   },
 
   initialize: function (options) {
@@ -12,6 +13,10 @@ FacebookClone.Routers.Posts = Backbone.Router.extend({
       collection : this.collection
     })
     $(".content").html(postIndex.render().$el);
+  },
+
+  showUser: function() {
+    
   }
 
 

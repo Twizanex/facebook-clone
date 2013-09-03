@@ -10,11 +10,13 @@
 
 <% _.each(posts.toArray().reverse(), function(post) { %>
   <div class="post">
+    <span class="author"><%= post.escape("author_id")%></span>
+    <br>
+
     <%= post.escape("body")%>
     <br>
+
     <span class="timeago"><%= jQuery.timeago(post.escape("created_at"))%></span>
-    <br>
-    <br>
   </div>
 <% }) %>
 
