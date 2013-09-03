@@ -11,10 +11,13 @@ class Post < ActiveRecord::Base
   has_many :likes,
     :class_name => "Like",
     :primary_key => :id,
-    :foreign_key => :post_id
+    :foreign_key => :post_id,
+    :dependent => :destroy
 
   has_many :comments, 
     :class_name => "Comment",
     :primary_key => :id,
-    :foreign_key => :post_id
+    :foreign_key => :post_id,
+    :dependent => :destroy
+
 end

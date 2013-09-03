@@ -4,9 +4,9 @@ class PostsController < ApplicationController
   def index
     @posts = []
     current_user.outbound_followers.each do |outbound_follower|
-      @posts += outbound_follower.posts
+      @posts += outbound_follower.posts.includes(:comments, :likes)
     end
-    @posts += current_user.posts
+    @posts += current_user.posts.includes(:comments, :likes)
     @posts = @posts.sort_by { |post| post.created_at }
 
     respond_to do |format|

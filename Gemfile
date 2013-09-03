@@ -21,3 +21,5 @@ gem 'backbone-on-rails'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'rabl'
+
+gem 'twitter-bootstrap-rails'

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = current_user.posts
+    @posts = current_user.posts.includes(:comments, :likes)
     render :show
   end
 end

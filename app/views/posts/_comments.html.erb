@@ -4,7 +4,27 @@
 
 <%post.comments.each do |comment|%>            
   <div class="comment">
+    <%if comment.author_id == user_id%>
+      <span class="delete">
+        <form action="<%=user_post_comment_url(user_id, post.id, comment.id)%>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+          <input type="hidden" name="_method", value="delete">
+          <input type="submit" value="✖">
+        </form>
+      </span>
+    <%end%>
+
     <span class="author-comment"><%comment.user.username%></span>
     <span class="comment-body"><%=comment.body%></span>
   </div>
 <%end%>
+
+<form class="new-comment" action="<%=user_post_comments_url(user_id,post.id)%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <textarea name="comment[body]" placeholder="Write a comment..."></textarea>
+  <input type="hidden" name="comment[author_id]" value="<%=user_id%>">
+  <input type="hidden" name="comment[post_id]" value="<%=post.id%>">
+  <input type="submit" value="Post">
+</form>
+
+

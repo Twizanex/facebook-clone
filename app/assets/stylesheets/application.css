@@ -37,7 +37,6 @@ div.post-indiv {
   background-color: white;
   padding: 10px;
   width: 350px;
-  height: 175px;
 }
 
 span.author-post {
@@ -57,13 +56,14 @@ span.like-count {
   color: #0066FF;
   font-size: 15px;
   float:left;
-  padding-top: 38px;
+  /*padding-top: 38px;*/
   padding-right: 10px;
 }
 
 .like-form {
   float: left;
-  margin-top: 35px;
+  float: bottom;
+  /*margin-top: 35px;*/
 }
 
 .delete {
@@ -82,5 +82,4 @@ div.comment {
   background-color: white;
   padding: 10px;
   width: 270px;
-  height: 30px;
 }
