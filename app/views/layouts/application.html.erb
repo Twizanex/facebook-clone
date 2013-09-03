@@ -10,13 +10,15 @@
 
 <% if !current_user.nil? %>
   <div class="header"> 
-    <%= link_to "Home", user_posts_url %> |
-    <%= link_to current_user.username, user_url(current_user.id)%> |
-    <%= link_to "Logout", session_url, :method => :delete %>
+    <span class="logo"> facebook </span>
+    <span class="nav_button"><%= link_to "Home", user_posts_url %> </span> 
+    <span class="nav_button">| <%= link_to current_user.username, user_url(current_user.id)%> | </span>
+    <span class="nav_button"><%= link_to "Logout", session_url, :method => :delete %></span>
+    <br>
   </div>
 <% end %>
 
-<div class="content"></div>
+<!-- <div class="content"></div>  --> <!-- for backbone -->
 
 <%= yield %>
 
