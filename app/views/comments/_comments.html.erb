@@ -20,14 +20,14 @@
     <span class="timeago"><%=time_ago_in_words(comment.created_at)%></span>
     <br>
 
-    <!-- <div class="comment-like-form"> -->
+    <div>
       <%@comment_like = CommentLike.find_by_user_id_and_comment_id(current_user.id, comment.id)%>
       <%if @comment_like %>
         <%=render "comment_likes/unlike", :post => post, :comment => comment, :comment_like => @comment_like%> 
       <%else %> 
         <%=render "comment_likes/like", :post => post, :comment => comment%>
       <%end%>  
-    <!-- </div> -->
+    </div>
   </div>
 
 

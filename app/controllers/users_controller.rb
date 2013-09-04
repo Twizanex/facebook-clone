@@ -18,7 +18,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.includes(:comments, :likes)
+    @posts = @user.posts.includes({:comments => :comment_likes}, :likes)
+    @posts += @user.wall_posts
     render :show
   end
 end
