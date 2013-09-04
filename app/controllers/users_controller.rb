@@ -18,8 +18,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.includes({:comments => :comment_likes}, :likes)
-    @posts += @user.wall_posts
+    #authored posts but not authored wall-to-walls
+    @posts = @user.posts.where(recipient_id: nil).
+            includes({:comments => :comment_likes}, :likes)
+    #wallposts
+    @posts += Post.where(recipient_id: params[:id])
     render :show
   end
 end

@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :author_id, :body
+  attr_accessible :author_id, :body, :recipient_id
 
   validates :author_id, :body, presence: true
 

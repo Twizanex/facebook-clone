@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     else
       flash.now[:errors] = @post.errors.full_messages
       redirect_to :back
+      # render :index
     end
   end
 

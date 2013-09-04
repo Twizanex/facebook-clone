@@ -1,6 +1,10 @@
 <form class="new-post" action="<%=user_posts_url(user_id)%>" method="post">
   <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-  <textarea class="textbox-post" name="post[body]" placeholder="What's on your mind?"></textarea>
+
+  <textarea class="textbox-post" name="post[body]" placeholder="Write something..."></textarea>
+
   <br>
+
+  <input type="hidden" name="post[recipient_id]" value="<%=params['id']%>">
   <input class="button" type="submit" value="Share">
 </form>

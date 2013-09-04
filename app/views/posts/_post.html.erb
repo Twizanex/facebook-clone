@@ -1,4 +1,11 @@
-<div class="author-post"><%=link_to post.user.username, user_url(post.author_id)%></div>
+<div class="author-post">
+  <%=link_to post.user.username, user_url(post.author_id)%>
+  <%if post.recipient_id%>
+    ▶
+    <%@recipient = User.find(post.recipient_id)%>
+    <%=link_to @recipient.username, user_url(@recipient.id)%>
+  <%end%>
+</div>
 
 <div class="timeago">
   <%=time_ago_in_words(post.created_at)%>
