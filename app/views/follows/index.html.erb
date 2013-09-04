@@ -1,0 +1,6 @@
+<h1> All Friends </h1>
+
+<%@followings.each do |following|%>
+  <%=link_to following.username, user_url(following.id)%>
+  <br>
+<%end%>

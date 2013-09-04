@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_filter :require_current_user!, :only => [:show]
   before_filter :require_no_current_user!, :only => [:create, :new]
 
   def create
@@ -18,7 +17,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = current_user.posts.includes(:comments, :likes)
+    @user = User.find(params[:id])
+    @posts = @user.posts.includes(:comments, :likes)
     render :show
   end
 end

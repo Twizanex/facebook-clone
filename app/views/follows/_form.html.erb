@@ -1,0 +1,7 @@
+<% @follow = Follow.find_by_outbound_user_id_and_inbound_user_id(user_id, receiver.id) %>
+
+<%if @follow%>
+  <%=render "follows/unfollow", :user_id => user_id, :follow => @follow%>
+<%else%>
+  <%=render "follows/follow", :user_id => user_id, :receiver => receiver %>
+<%end%>

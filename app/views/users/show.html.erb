@@ -1,4 +1,6 @@
-<h1><%=current_user.username %></h1>
+<h1><%=@user.username %></h1>
+
+<%=render "follows/form", :user_id => current_user.id, :receiver => @user %>
 
 <form class="new-post" action="<%=user_posts_url(current_user.id)%>" method="post">
   <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
@@ -16,5 +18,8 @@
     </div>
   <% end %>
 </div>
+
+
+
 
 
