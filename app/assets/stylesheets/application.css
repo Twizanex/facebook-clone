@@ -17,7 +17,6 @@ html {
 }
 
 .header {
-  display :block;
   background-color: rgba(105, 168, 223, 0.5);
   font-size: 15px;
 }
@@ -30,7 +29,7 @@ html {
   float: right
 }
 
-div.post-indiv {
+.post-indiv {
   border-width: 4px;
   border-style: outset;
   border-color: #800000;
@@ -39,31 +38,33 @@ div.post-indiv {
   width: 350px;
 }
 
-span.author-post {
+.author-post {
   font-size: 22px;
   color: #0066FF;
 }
 
-span.timeago {
+.timeago {
   font-style: italic;
   color: gray;
-  font-size:13px;
-  float: right;
-  padding-top: 40px;
+  font-size:12px;
+  float: left;
 }
 
-span.like-count {
+.timeago-comment {
+  font-style: italic;
+  color: gray;
+  font-size:11px;
+  float: right;
+}
+
+.like-count {
   color: #0066FF;
   font-size: 15px;
-  float:left;
-  /*padding-top: 38px;*/
-  padding-right: 10px;
+  float: left;
 }
 
 .like-form {
   float: left;
-  float: bottom;
-  /*margin-top: 35px;*/
 }
 
 .delete {
@@ -75,11 +76,15 @@ span.like-count {
   font-size: 15px;
 }
 
-div.comment {
+.comment {
   border-width: 2px;
   border-style: solid;
   border-color: black;
   background-color: white;
   padding: 10px;
-  width: 270px;
+  width: 325px;
+}
+
+.comment-body {
+  font-size: 13px;
 }

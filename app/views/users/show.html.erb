@@ -11,23 +11,10 @@
   <%@posts.reverse.each do |post|%>
     <div class="post-indiv">
       <%=render "posts/post", :post => post, :user_id => current_user%>
-
+      <br>
       <%=render "posts/comments", :post => post, :user_id => current_user.id%>
-
-      <%@like = Like.find_by_user_id_and_post_id(current_user.id, post.id)%>
-      <%if @like %>
-        <%=render "posts/unlike", :post => post, :like => @like%> 
-      <%else %> 
-        <%=render "posts/like", :post => post%>
-      <%end%> 
-
-      <span class="timeago">
-        <%=time_ago_in_words(post.created_at)%>
-      </span>
-
     </div>
-  <%end%>
+  <% end %>
 </div>
-
 
 

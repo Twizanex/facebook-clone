@@ -1,5 +1,9 @@
 
-<span class="author-post"><%= post.user.username %></span>
+<div class="author-post"><%= post.user.username %></div>
+
+<div class="timeago">
+  <%=time_ago_in_words(post.created_at)%>
+</div>
 
 <%if current_user.id == post.author_id%>
   <span class="delete">
@@ -11,7 +15,20 @@
   </span>
 <%end%>
 
-
 <br>
 <%=post.body%>
 <br>
+    
+<div>
+  <%@like = Like.find_by_user_id_and_post_id(current_user.id, post.id)%>
+  <%if @like %>
+    <%=render "posts/unlike", :post => post, :like => @like%> 
+  <%else %> 
+    <%=render "posts/like", :post => post%>
+  <%end%>  
+</div>
+
+<br>
+
+
+
