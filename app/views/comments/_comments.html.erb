@@ -1,0 +1,41 @@
+<%if post.comments.count >= 1%>
+  <span>Comments:</span>
+<%end%>
+
+<%post.comments.each do |comment|%>            
+  <div class="comment">
+    <%if comment.author_id == user_id%>
+      <span class="delete">
+        <form action="<%=user_post_comment_url(user_id, post.id, comment.id)%>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+          <input type="hidden" name="_method", value="delete">
+          <input type="submit" value="✖">
+        </form>
+      </span>
+    <%end%>
+
+    <span class="author-comment"><%=link_to comment.user.username, user_url(comment.author_id)%></span>
+    <span class="comment-body"><%=comment.body%></span>
+    <br>
+    <span class="timeago"><%=time_ago_in_words(comment.created_at)%></span>
+    <br>
+
+    <!-- <div class="comment-like-form"> -->
+      <%@comment_like = CommentLike.find_by_user_id_and_comment_id(current_user.id, comment.id)%>
+      <%if @comment_like %>
+        <%=render "comment_likes/unlike", :post => post, :comment => comment, :comment_like => @comment_like%> 
+      <%else %> 
+        <%=render "comment_likes/like", :post => post, :comment => comment%>
+      <%end%>  
+    <!-- </div> -->
+  </div>
+
+
+<%end%>
+
+<br>
+
+<%=render "comments/new_comment", :post =>post %>
+
+
+

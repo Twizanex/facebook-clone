@@ -1,27 +1,19 @@
 
 <div class="clearfix">
-<h1> News Feed </h1>
+  <h1> News Feed </h1>
 
-<%=render "posts/new_post", :user_id => current_user.id %>
+  <%=render "posts/new_post", :user_id => current_user.id %>
 
-<div class="posts-all">
-  <%@posts.reverse.each do |post|%>
-    <div class="post-indiv">
-      <%=render "posts/post", :post => post, :user_id => current_user.id%>
-      <br>
-      <%=render "posts/comments", :post => post, :user_id => current_user.id%>
-    </div>
-  <% end %>
+  <div class="posts-all">
+    <%@posts.reverse.each do |post|%>
+      <div class="post-indiv">
+        <%=render "posts/post", :post => post, :user_id => current_user.id%>
+        <br>
+        <%=render "comments/comments", :post => post, :user_id => current_user.id%>
+      </div>
+    <% end %>
+  </div>
+
+  <%=render "layouts/sidebar"%>
+
 </div>
-
-
-<div class="sidebar">
-
-  <div><%=link_to current_user.username, user_url(current_user.id)%></div>
-
-  <div><%=link_to "Friends", user_follows_url(current_user.id)%></div>
-
-  <div><%=link_to "Home", user_posts_url(current_user.id)%> </div> 
-</div>
-
-</div>s

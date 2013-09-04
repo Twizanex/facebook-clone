@@ -21,9 +21,9 @@
 <div>
   <%@like = Like.find_by_user_id_and_post_id(current_user.id, post.id)%>
   <%if @like %>
-    <%=render "posts/unlike", :post => post, :like => @like%> 
+    <%=render "likes/unlike", :post => post, :like => @like%> 
   <%else %> 
-    <%=render "posts/like", :post => post%>
+    <%=render "likes/like", :post => post%>
   <%end%>  
 </div>
 

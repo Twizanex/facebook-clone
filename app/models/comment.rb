@@ -12,4 +12,11 @@ class Comment < ActiveRecord::Base
     :class_name => "Post",
     :primary_key => :id,
     :foreign_key => :post_id
+
+  has_many :comment_likes,
+    :class_name => "CommentLike",
+    :primary_key => :id,
+    :foreign_key => :comment_id,
+    :dependent => :destroy
+
 end

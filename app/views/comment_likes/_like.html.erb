@@ -1,0 +1,12 @@
+<form class="like-form" action="<%=user_post_comment_comment_likes_url(current_user.id,post.id, comment.id)%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <input type="hidden" name="comment_like[comment_id]" value="<%=comment.id%>">
+  <input type="hidden" name="comment_like[user_id]" value="<%=current_user.id%>">
+  <input type="submit" value="Like">
+</form>
+
+<span class="like-count">
+  <% if comment.comment_likes.count > 0 %>
+      ☝ <%= comment.comment_likes.count %>
+  <% end %>
+</span>
