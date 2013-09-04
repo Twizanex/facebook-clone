@@ -1,16 +1,11 @@
 <h1> News Feed </h1>
 
-<form class="new-post" action="<%=user_posts_url(current_user.id)%>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-  <textarea name="post[body]" placeholder="What's on your mind?"></textarea>
-  <br>
-  <input type="submit" value="Share">
-</form>
+<%=render "posts/new_post", :user_id => current_user.id %>
 
 <div class="posts-all">
   <%@posts.reverse.each do |post|%>
     <div class="post-indiv">
-      <%=render "posts/post", :post => post, :user_id => current_user%>
+      <%=render "posts/post", :post => post, :user_id => current_user.id%>
       <br>
       <%=render "posts/comments", :post => post, :user_id => current_user.id%>
     </div>
