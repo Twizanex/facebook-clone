@@ -1,9 +1,12 @@
-<div class="header"> 
+<div class="navbar"> 
   <span class="logo"> facebook </span>
 
   <span class="nav_button"><%= link_to "Logout", session_url, :method => :delete %></span>
-  <span class="nav_button">| <%= link_to "Friends", user_follows_url(current_user.id)%> | </span>
-  <span class="nav_button">| <%= link_to current_user.username, user_url(current_user.id)%> | </span>
+
+  <span class="nav_button">|<%= link_to current_user.username, user_url(current_user.id)%>|</span>
+
+  <span class="nav_button">|<%= link_to "Friends", user_follows_url(current_user.id)%></span>
+
   <span class="nav_button"><%= link_to "Home", user_posts_url(current_user.id) %> </span> 
 
   <br>

@@ -14,18 +14,20 @@
       </span>
     <%end%>
 
-    <span class="author-comment"><%=comment.user.username%></span>
+    <span class="author-comment"><%=link_to comment.user.username, user_url(comment.author_id)%></span>
     <span class="comment-body"><%=comment.body%></span>
     <span class="timeago-comment"><%=time_ago_in_words(comment.created_at)%></span>
   </div>
 <%end%>
 
+<br>
+
 <form class="new-comment" action="<%=user_post_comments_url(user_id,post.id)%>" method="post">
   <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-  <textarea name="comment[body]" placeholder="Write a comment..."></textarea>
+  <textarea class="textbox-comment" name="comment[body]" placeholder="Write a comment..."></textarea>
   <input type="hidden" name="comment[author_id]" value="<%=user_id%>">
   <input type="hidden" name="comment[post_id]" value="<%=post.id%>">
-  <input type="submit" value="Post">
+  <input class="button" type="submit" value="Post">
 </form>
 
 
