@@ -22,6 +22,11 @@
 <%end%>
 
 <br>
+<% if (post.photo_file_size) %>
+  <%= image_tag post.photo.url(:big) %>
+<% end %>
+<br>
+
 <%=post.body%>
 <br>
     

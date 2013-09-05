@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :author_id, :body, :recipient_id
+  attr_accessible :author_id, :body, :recipient_id, :photo
 
   validates :author_id, :body, presence: true
 
@@ -20,4 +20,8 @@ class Post < ActiveRecord::Base
     :foreign_key => :post_id,
     :dependent => :destroy
 
+  has_attached_file :photo, :styles => {
+    :big => "400x400>",
+    :small => "50x50#"
+  }
 end

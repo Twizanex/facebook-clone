@@ -9,7 +9,7 @@
     <div class="post-indiv">
       <%=render "posts/post", :post => post, :user_id => current_user.id%>
       <br>
-      <%=render "posts/comments", :post => post, :user_id => current_user.id%>
+      <%=render "comments/comments", :post => post, :user_id => current_user.id%>
     </div>
   <% end %>
 </div>

@@ -21,5 +21,8 @@ gem 'backbone-on-rails'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'rabl'
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'figaro'
 
 # gem 'twitter-bootstrap-rails'
