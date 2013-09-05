@@ -9,10 +9,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find(params[:id])
     Like.destroy(params[:id])
-    render :json => @like
-    # render :json => "success"
-    # head :ok
+    render :json => true
   end
 end
