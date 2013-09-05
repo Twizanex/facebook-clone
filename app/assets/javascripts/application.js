@@ -17,21 +17,3 @@
 //= require_tree .
 
 
-
-  $("form.new-post").on("click", '"input type="submit"', 
-    debugger
-    function (event) {
-      event.preventDefault();
-      var formData = $(this.form).serializeJSON().post;
-      var user_id = $(this.form).attr("data-user-id");
-
-      $.ajax({
-        url: "/users/" + user_id + "/posts",
-        type: "POST",
-        data: formData,
-        success: function () {
-          $(".posts-all").prepend('<div class="post-indiv">' + '</div>')
-          console.log("here");
-        }
-      })
-    });

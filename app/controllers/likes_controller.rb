@@ -1,17 +1,18 @@
 class LikesController < ApplicationController
   def create
-    @like = Like.new(params[:like])
+    @like = Like.new(:user_id => current_user.id, :post_id => params[:post_id])
     if @like.save 
-      redirect_to :back
+      render :json => @like
     else
-      flash.now[:errors] = @like.errors.full_messages
-      redirect_to :back
+      render :json => "Something bad happened!", :status => 422
     end
   end
 
   def destroy
     @like = Like.find(params[:id])
-    @like.destroy
-    redirect_to :back
+    Like.destroy(params[:id])
+    render :json => @like
+    # render :json => "success"
+    # head :ok
   end
 end

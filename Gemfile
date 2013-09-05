@@ -13,7 +13,7 @@ group :development do
 end
 
 gem 'bcrypt-ruby', :require => 'bcrypt'
-gem 'jquery-rails'
+gem "jquery-rails", "~>1.0.19"
 gem 'pg'
 
 
@@ -22,4 +22,4 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'rabl'
 
-gem 'twitter-bootstrap-rails'
+# gem 'twitter-bootstrap-rails'

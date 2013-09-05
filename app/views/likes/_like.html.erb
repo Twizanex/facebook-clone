@@ -1,12 +1,19 @@
-<form class="like-form" action="<%=user_post_likes_url(current_user.id,post.id)%>" method="post">
+<!-- <form class="like-form" 
+      action="<%=user_post_likes_url(current_user.id,post.id)%>" 
+      method="post">
   <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
   <input type="hidden" name="like[post_id]" value="<%=post.id%>">
   <input type="hidden" name="like[user_id]" value="<%=current_user.id%>">
-  <input type="submit" value="Like">
-</form>
-
-<span class="like-count">
+  <input id="button-<%=post.id%>" type="submit" value="Like">
+ -->
+  <span class="like-count-<%=post.id%>" data-like-count="<%=post.likes.count%>">
   <% if post.likes.count > 0 %>
       ☝ <%= post.likes.count %>
   <% end %>
-</span>
+  </span>
+  <!-- <br> -->
+<!-- </form> -->
+
+
+<button class="like-button" post-id="<%=post.id%>" user-id="<%=current_user.id%>">Like</button>
+
