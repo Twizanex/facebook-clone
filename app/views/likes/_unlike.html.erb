@@ -1,19 +1,14 @@
-<!-- <form class="unlike-form"
-      action="<%=user_post_like_url(current_user.id,post.id, like.id)%>"
-      method="post" >
-  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-  <input type="hidden" name="like[post_id]" value="<%=post.id%>">
-  <input type="hidden" name="like[user_id]" value="<%=current_user.id%>">
-  <input type="hidden" name="like[like_id]" value="<%=like.id%>">
-  <input type="hidden" name="_method", value="delete">
-  <input id="button-<%=post.id%>" type="submit" value="Unlike"> -->
+<span class="like-count-<%=post.id%>" data-like-count="<%=post.likes.count%>">
+<% if post.likes.count > 0 %>
+    ☝ <%= post.likes.count %>
+<% end %>
+</span>
 
-  <span class="like-count-<%=post.id%>" data-like-count="<%=post.likes.count%>">
-  <% if post.likes.count > 0 %>
-      ☝ <%= post.likes.count %>
-  <% end %>
-  </span>
-  <!-- <br> -->
-<!-- </form> -->
 
-<button class="unlike-button" like-id="<%=like.id%>" post-id = "<%=post.id%>" user-id="<%=current_user.id%>">Unlike</button>
+<button 
+  class="unlike-button" 
+  like-id="<%=like.id%>" 
+  post-id = "<%=post.id%>" 
+  user-id="<%=current_user.id%>">
+  Unlike
+</button>

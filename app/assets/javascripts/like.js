@@ -11,14 +11,24 @@ $(function () {
         url: "/users/" + userId + "/posts/" + postId + "/likes",
         type: "POST",
         dataType: "json",
-        success: function (response) {  
-            console.log("LIKE success callback")
+        success: function () {  
+            console.log("LIKE success callback");
             $(event.currentTarget).toggleClass("like-button");
             $(event.currentTarget).toggleClass("unlike-button");
             $(event.currentTarget).text("Unlike");
-   
+
             debugger
-            $(".like-count-" + postId).text("☝ " + (parseInt(likeCount) + 1));
+            if ($(event.currentTarget).data("numClicks")) {
+              $(".like-count-" + postId).text("☝ " + parseInt(likeCount));
+              $(event.currentTarget).data("numClicks", null);
+            }
+            else {
+              $(".like-count-" + postId).text("☝ " + (parseInt(likeCount) + 1));
+              $(event.currentTarget).data("numClicks", 1);
+            }
+
+   
+            // $(".like-count-" + postId).text("☝ " + (parseInt(likeCount) + 1));
         }
       }).done(function (like){
         $("button[post-id= '" + postId + "']").attr("like-id", like.id);
@@ -45,11 +55,20 @@ $(function () {
             $(event.currentTarget).text("Like");
 
             debugger
-            $(".like-count-" + postId).text("☝ " + (parseInt(likeCount) - 1));
+            if ($(event.currentTarget).data("numClicks")) {
+              $(".like-count-" + postId).text("☝ " + parseInt(likeCount));
+              $(event.currentTarget).data("numClicks", null);
+            }
+            else {
+              $(".like-count-" + postId).text("☝ " + (parseInt(likeCount) - 1));
+              $(event.currentTarget).data("numClicks", 1);
+            }
+
+
+
+
+            // $(".like-count-" + postId).text("☝ " + (parseInt(likeCount) - 1));
           },
-          // error: function(error) {
-          //   console.log(error);
-          // }
         });
      });
   })
