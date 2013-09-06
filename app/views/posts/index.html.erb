@@ -2,6 +2,9 @@
 <div class="clearfix">
   <h1> News Feed </h1>
 
+  <%=render "layouts/sidebar"%>
+
+
   <%=render "posts/new_post", :user_id => current_user.id %>
 
   <div class="posts-all">
@@ -14,5 +17,4 @@
     <%end%>
   </div>
 
-  <%=render "layouts/sidebar"%>
 </div>
