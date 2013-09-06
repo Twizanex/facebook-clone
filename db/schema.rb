@@ -83,4 +83,14 @@ ActiveRecord::Schema.define(:version => 20130905234206) do
   add_index "users", ["session_token"], :name => "index_users_on_session_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
+  create_table "wall_posts", :force => true do |t|
+    t.integer  "author_id"
+    t.integer  "recipient_id"
+    t.text     "body"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "wall_posts", ["author_id", "recipient_id"], :name => "index_wall_posts_on_author_id_and_recipient_id"
+
 end
