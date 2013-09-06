@@ -24,5 +24,6 @@ gem 'rabl'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'figaro'
+gem 'pusher'
 
 # gem 'twitter-bootstrap-rails'

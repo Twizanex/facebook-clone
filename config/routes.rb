@@ -1,6 +1,7 @@
 FacebookClone::Application.routes.draw do
   resources :users, :only => [:create, :new, :show] do
     resources :follows, :only => [:index, :create, :destroy]
+    resources :messages
     resources :posts, :only => [:index, :create, :destroy] do
       resources :likes, :only => [:create, :destroy]
       resources :comments, :only => [:create, :destroy] do

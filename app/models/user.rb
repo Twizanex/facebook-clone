@@ -37,11 +37,6 @@ class User < ActiveRecord::Base
     :primary_key => :id,
     :foreign_key => :user_id
 
-  # has_many :comments,
-  #   :class_name => "Comment",
-  #   :primary_key => :id,
-  #   :foreign_key => :author_id
-
   has_many :comment_likes,
     :class_name => "CommentLike",
     :primary_key => :id,
@@ -51,6 +46,11 @@ class User < ActiveRecord::Base
     :class_name => "WallPost",
     :primary_key => :id,
     :foreign_key => :recipient_id
+
+  has_many :messages,
+    :class_name => "Message",
+    :primary_key => :id,
+    :foreign_key => :user_id
 
 
   def self.find_by_credentials(username, password)
