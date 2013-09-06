@@ -23,6 +23,8 @@ class UsersController < ApplicationController
             includes({:comments => :comment_likes}, :likes)
     #wallposts
     @posts += Post.where(recipient_id: params[:id])
+    @posts = @posts.sort_by { |post| post.created_at }
+
     render :show
   end
 end

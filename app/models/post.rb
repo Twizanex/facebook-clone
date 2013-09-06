@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
   attr_accessible :author_id, :body, :recipient_id, :photo
 
-  validates :author_id, :body, presence: true
+  validates :author_id,:body, presence: true
+  # validate :has_body_or_photo
 
   belongs_to :user,
     :class_name => "User",
@@ -22,6 +23,12 @@ class Post < ActiveRecord::Base
 
   has_attached_file :photo, :styles => {
     :big => "400x400>",
-    :small => "50x50#"
+    :small => "200x200#"
   }
+
+  # def has_body_or_photo 
+  #   unless self.body || self.photo
+  #     errors[:body] << "Need either post body or photo"
+  #   end
+  # end
 end
