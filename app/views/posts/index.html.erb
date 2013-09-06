@@ -1,20 +1,18 @@
+<h1> News Feed </h1>
 
-<div class="clearfix">
-  <h1> News Feed </h1>
+<%=render "layouts/sidebar"%>
 
-  <%=render "layouts/sidebar"%>
-
-
+<div class="new-post">
   <%=render "posts/new_post", :user_id => current_user.id %>
-
-  <div class="posts-all">
-    <%@posts.reverse.each do |post|%>
-      <div class="post-indiv">
-        <%=render "posts/post", :post => post, :user_id => current_user.id%>
-        <br>
-        <%=render "comments/comments", :post => post, :user_id => current_user.id%>
-      </div>
-    <%end%>
-  </div>
-
 </div>
+
+<div class="posts-all">
+  <%@posts.reverse.each do |post|%>
+    <div class="post-indiv">
+      <%=render "posts/post", :post => post, :user_id => current_user.id%>
+      <br>
+      <%=render "comments/comments", :post => post, :user_id => current_user.id%>
+    </div>
+  <%end%>
+</div>
+

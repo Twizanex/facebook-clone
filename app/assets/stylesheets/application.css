@@ -43,14 +43,20 @@ a:hover {
   float:left;
   border-style: solid;
   border-radius: 10px;
+  font-size: 20px;
+  width: 100px;
+  height: 200px;
 }
 
-
-.clearfix {
+.posts-all {
   margin: 0 auto;
   width: 450px;
 }
 
+.new-post {
+  margin: 0 auto;
+  width: 450px;
+}
 
 .textbox-post {
   height: 100px;
