@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130906220500) do
+ActiveRecord::Schema.define(:version => 20130907010120) do
 
   create_table "comment_likes", :force => true do |t|
     t.integer  "user_id"
@@ -40,6 +40,25 @@ ActiveRecord::Schema.define(:version => 20130906220500) do
   end
 
   add_index "follows", ["inbound_user_id", "outbound_user_id"], :name => "index_follows_on_inbound_user_id_and_outbound_user_id"
+
+  create_table "group_user_joins", :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "group_user_joins", ["group_id", "user_id"], :name => "index_group_user_joins_on_group_id_and_user_id"
+
+  create_table "groups", :force => true do |t|
+    t.integer  "creator_id"
+    t.string   "name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
+  end
+
+  add_index "groups", ["creator_id"], :name => "index_groups_on_creator_id"
 
   create_table "likes", :force => true do |t|
     t.integer  "user_id"

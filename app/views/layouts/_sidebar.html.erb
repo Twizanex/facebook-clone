@@ -6,4 +6,12 @@
   <div><%=link_to "Home", user_posts_url(current_user.id)%> </div> 
   <br>
   <div><%=link_to "Photos", user_photos_url(current_user.id)%> </div>
+  <br>
+
+  <%current_user.groups.each do |group|%>
+    <%=link_to group.name, user_group_url(current_user.id, group.id)%>
+    <br>
+    <br>
+  <%end%>
+
 </div>

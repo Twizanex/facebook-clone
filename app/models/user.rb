@@ -56,6 +56,14 @@ class User < ActiveRecord::Base
     :primary_key => :id,
     :foreign_key => :user_id
 
+  has_many :group_user_joins,
+    :class_name => "GroupUserJoin",
+    :primary_key => :id,
+    :foreign_key => :user_id
+  
+  has_many :groups,
+    :through => :group_user_joins,
+    :source => :group
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)

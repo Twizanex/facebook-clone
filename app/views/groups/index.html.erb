@@ -1,0 +1,33 @@
+<center><h1> Your Groups </h1></center> 
+
+<h3>New Group:</h3>
+
+<div class="new-group">
+  <form action="<%=user_groups_url(current_user.id)%>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+    <label for="group_name">Name:</label>
+    <br>
+    <input type="textbox" name="group[name]" id="group_name">
+
+    <br>
+    <br>
+
+    <label for="group_description">Description:</label>
+    <br>
+    <input type="textbox" name="group[description]" id="group_description">
+
+    <br>
+    <input type="submit" value="Create Group!">
+
+  </form>
+</div>
+</center>
+
+
+<div class="group-list">
+<%@groups.each do |group|%> 
+    <%=link_to group.name, user_group_url(current_user.id, group.id)%>
+  <br>
+<%end%>
+</div>

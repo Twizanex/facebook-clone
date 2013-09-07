@@ -16,8 +16,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    p "PARAMS"
-    p params
     params[:post][:author_id] = current_user.id
     begin 
       @post = Post.create(params[:post])

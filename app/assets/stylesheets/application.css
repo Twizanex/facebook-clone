@@ -45,8 +45,7 @@ a:hover {
   border-style: solid;
   border-radius: 10px;
   font-size: 20px;
-  width: 100px;
-  height: 230px;
+  width: 150px;
 }
 
 .posts-all {
@@ -136,4 +135,14 @@ a:hover {
 
 .comment-body {
   font-size: 13px;
+}
+
+.new-group {
+  float: left;
+}
+
+.group-list {
+  margin-left: 540px;
+  width: 200px;
+
 }
