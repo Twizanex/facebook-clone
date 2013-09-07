@@ -26,6 +26,12 @@ class Post < ActiveRecord::Base
     :small => "200x200#"
   }
 
+  has_many :tags,
+    :class_name => "Tag",
+    :primary_key => :id,
+    :foreign_key => :post_id,
+    :dependent => :destroy
+
   # def has_body_or_photo 
   #   unless self.body || self.photo
   #     errors[:body] << "Need either post body or photo"

@@ -1,0 +1,8 @@
+<% if post.tags %>
+  <span style="color:gray;font-size:12px;" >with<span>
+  <span class="tags">
+    <%post.tags.each do |tag| %>
+       <%=link_to tag.user.username, user_url(tag.user_id)%>
+    <%end%>
+  </span>
+<%end%>

@@ -16,15 +16,23 @@ class PostsController < ApplicationController
   end
 
   def create
+    p "PARAMS"
+    p params
     params[:post][:author_id] = current_user.id
-    @post = Post.new(params[:post])
-    if @post.save
-      redirect_to :back
+    begin 
+      @post = Post.create(params[:post])
+      ActiveRecord::Base.transaction do 
+        params[:tags].each do |user_id|
+          Tag.create!(:post_id => @post.id, :user_id => user_id.to_i)
+        end
+      end
+    rescue => e
+      flash.now[:errors] ||= []
+      flash.now[:errors] += e.record.errors.full_messages
     else
-      flash.now[:errors] = @post.errors.full_messages
       redirect_to :back
-      # render :index
     end
+
   end
 
   def destroy

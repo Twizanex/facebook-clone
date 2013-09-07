@@ -31,6 +31,7 @@ a:hover {
   text-decoration:underline;
 }
 
+
 .logo {
   float: left
 }
@@ -53,6 +54,10 @@ a:hover {
   width: 450px;
 }
 
+.tags {
+  font-size: 14px;
+}
+
 .new-post {
   margin: 0 auto;
   width: 450px;
@@ -61,6 +66,10 @@ a:hover {
 .textbox-post {
   height: 100px;
   width: 470px;
+}
+
+.tag-dropdown {
+  float: right;
 }
 
 .textbox-comment {

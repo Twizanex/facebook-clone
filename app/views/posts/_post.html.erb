@@ -5,6 +5,9 @@
     <%@recipient = User.find(post.recipient_id)%>
     <%=link_to @recipient.username, user_url(@recipient.id)%>
   <%end%>
+
+  <%=render "tags/tags", :post => post%>
+
 </div>
 
 <div class="timeago">

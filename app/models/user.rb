@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  # searchable do 
+  #   text :username
+  # end
+
   has_many :posts,
     :class_name => "Post",
     :primary_key => :id,
@@ -42,13 +46,13 @@ class User < ActiveRecord::Base
     :primary_key => :id,
     :foreign_key => :user_id
 
-  has_many :wall_posts,
-    :class_name => "WallPost",
-    :primary_key => :id,
-    :foreign_key => :recipient_id
-
   has_many :messages,
     :class_name => "Message",
+    :primary_key => :id,
+    :foreign_key => :user_id
+
+  has_many :tags,
+    :class_name => "Tag",
     :primary_key => :id,
     :foreign_key => :user_id
 

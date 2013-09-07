@@ -7,6 +7,14 @@
   <input type="file" name="post[photo]">
 
   <input type="hidden" name="post[recipient_id]" value="<%=params['id']%>">
+
+  <select class="tag-dropdown" multiple="multiple" name="tags[]">
+    <option>Select Friend</option>  
+    <%current_user.outbound_followers.each do |outbound_follower| %>
+      <option value="<%=outbound_follower.id%>"><%=outbound_follower.username%></option>
+      <%end%>
+  </select> 
+
   <input class="button" type="submit" value="Share">
 </form>
 

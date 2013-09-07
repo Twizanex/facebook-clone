@@ -26,4 +26,6 @@ gem 'aws-sdk'
 gem 'figaro'
 gem 'pusher'
 
+gem 'sunspot_rails'
+
 # gem 'twitter-bootstrap-rails'
