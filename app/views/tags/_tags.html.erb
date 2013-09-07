@@ -1,8 +1,13 @@
 <% if post.tags %>
   <span style="color:gray;font-size:12px;" >with<span>
   <span class="tags">
-    <%post.tags.each do |tag| %>
-       <%=link_to tag.user.username, user_url(tag.user_id)%>
+    <%num_tags = post.tags.length%>
+    <%post.tags.each_with_index do |tag, i| %>
+      <%if num_tags == (i - 1)%>
+        <%=link_to tag.user.username, user_url(tag.user_id)%>
+      <%else%>
+        , <%=link_to tag.user.username, user_url(tag.user_id)%>
+      <%end%>
     <%end%>
   </span>
 <%end%>
