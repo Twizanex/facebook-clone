@@ -1,4 +1,4 @@
-<div class="sidebar">
+<span class="sidebar">
   <div><%=link_to current_user.username, user_url(current_user.id)%></div>
   <br>
   <div><%=link_to "Friends", user_follows_url(current_user.id)%></div>
@@ -13,5 +13,4 @@
     <br>
     <br>
   <%end%>
-
-</div>
+</span>

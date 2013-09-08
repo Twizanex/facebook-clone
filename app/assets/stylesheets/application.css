@@ -46,6 +46,7 @@ a:hover {
   border-radius: 10px;
   font-size: 20px;
   width: 150px;
+  display: inline;
 }
 
 .posts-all {
@@ -142,7 +143,6 @@ a:hover {
 }
 
 .group-list {
-  margin-left: 540px;
-  width: 200px;
-
+  float: right;
+  margin-right: 70px;
 }

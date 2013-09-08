@@ -2,7 +2,18 @@
   <h1><%=@group.name%></h1>
 </center>
 
-<span class="group-description">
-  <%=@group.description%>
-</span>
+<center>
+  <%if current_user.id == @group.creator_id%>
+    <form action="<%=user_group_url(current_user.id, @group.id)%>" method="post">
+      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Group">
+    </form>
+  <%end%>
+</center>
 
+<center>
+  <span class="group-description">
+    <%=@group.description%>
+  </span>
+</center>
