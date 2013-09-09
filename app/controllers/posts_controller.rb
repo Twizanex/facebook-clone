@@ -20,13 +20,15 @@ class PostsController < ApplicationController
     begin 
       @post = Post.create(params[:post])
       ActiveRecord::Base.transaction do 
-        params[:tags].each do |user_id|
-          Tag.create!(:post_id => @post.id, :user_id => user_id.to_i)
+        if params[:tags]
+          params[:tags].each do |user_id|
+            Tag.create!(:post_id => @post.id, :user_id => user_id.to_i)
+          end
         end
       end
-    rescue => e
+    rescue 
       flash.now[:errors] ||= []
-      flash.now[:errors] += e.record.errors.full_messages
+      flash.now[:errors] += record.errors.full_messages
     else
       redirect_to :back
     end

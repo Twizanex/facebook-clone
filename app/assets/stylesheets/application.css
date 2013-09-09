@@ -13,31 +13,39 @@
  */
 
 html {
-  font-family: 'Futura', sans-serif;
+  font-size: 15px
+}
+
+.navbar a{
+  font-size: 22px;
+  color:white;
 }
 
 .navbar {
-  background-color: rgba(105, 168, 223, 0.5);
-  font-size: 20px;
+  height: 40px;
+}
+
+.btn {
+  background-color: #2980B9
 }
 
 h1 {
   text-align: center;
 }
 
+
 a:hover {
   cursor: pointer;
-  color: blue;
   text-decoration:underline;
 }
 
-
 .logo {
-  float: left
+  font-size: 26px;
+  float: left;
 }
 
 .nav_button {
-  float: right
+  float: right;
 }
 
 .sidebar {
@@ -60,7 +68,11 @@ a:hover {
 
 .new-post {
   margin: 0 auto;
-  width: 450px;
+  width: 460px;
+}
+
+.file-submit {
+  width: 200px;
 }
 
 .textbox-post {
@@ -69,12 +81,13 @@ a:hover {
 }
 
 .tag-dropdown {
-  float: right;
+  float:right;
+  color: #2980B9;
 }
 
 .textbox-comment {
-  height: 50px;
-  width: 443px;
+  /*height: 50px;*/
+  width: 400px;
 }
 
 .post-indiv {
@@ -86,8 +99,8 @@ a:hover {
   width: 450px;
 }
 
-.button {
-  margin-left: 410px;
+.delete {
+  width: 35px;
 }
 
 .author-post {

@@ -4,19 +4,23 @@
   <textarea class="textbox-post" name="post[body]" placeholder="Write something..."></textarea>
   <br>
 
-  <input type="file" name="post[photo]">
+  <input class="file-submit" type="file" name="post[photo]">
 
   <input type="hidden" name="post[recipient_id]" value="<%=params['id']%>">
 
-  <select class="tag-dropdown" multiple="multiple" name="tags[]">
+  <select class="tag-dropdown btn dropdown-toggle clearfix btn-primary" name="tags[]">
     <option>Select Friend</option>  
     <%current_user.outbound_followers.each do |outbound_follower| %>
       <option value="<%=outbound_follower.id%>"><%=outbound_follower.username%></option>
       <%end%>
   </select> 
-
-  <input class="button" type="submit" value="Share">
+  <br>
+  <input class="btn" type="submit" value="Share">
 </form>
+
+<br>
+<br>
+<br>
 
 
 
