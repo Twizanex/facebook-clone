@@ -1,8 +1,9 @@
-<form class="follow-form" action="<%=user_follows_url(user_id)%>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-  <input type="hidden" name="follow[outbound_user_id]" value="<%=user_id%>">
-  <input type="hidden" name="follow[inbound_user_id]" value="<%=receiver.id%>">
-  <input type="submit" value="Follow">
-</form>
-
+<% if receiver.id != current_user.id %>
+  <form class="follow-form" action="<%=user_follows_url(user_id)%>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    <input type="hidden" name="follow[outbound_user_id]" value="<%=user_id%>">
+    <input type="hidden" name="follow[inbound_user_id]" value="<%=receiver.id%>">
+    <input class="button" type="submit" value="Follow">
+  </form>
+<%end%>
 <br>

@@ -3,7 +3,7 @@ FacebookClone::Application.routes.draw do
     resources :photos, :only => [:index]
     resources :follows, :only => [:index, :create, :destroy]
     resources :messages
-    resources :groups, :only => [:index, :show, :create, :destroy]
+    resources :groups, :only => [:index, :new, :show, :create, :destroy]
     resources :posts, :only => [:index, :create, :destroy] do
       resources :tags, :only => [:create, :destroy]
       resources :likes, :only => [:create, :destroy]

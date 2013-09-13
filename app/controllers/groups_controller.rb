@@ -4,6 +4,10 @@ class GroupsController < ApplicationController
     render :index
   end
 
+  def new
+    render :new
+  end
+
   def show
     @group = Group.find(params[:id])
     render :show
@@ -20,7 +24,7 @@ class GroupsController < ApplicationController
       flash.now[:errors] ||= []
       flash.now[:errors] += e.record.errors.full_messages
     else
-      redirect_to :back
+      redirect_to user_groups_url(current_user.id)
     end
   end
 

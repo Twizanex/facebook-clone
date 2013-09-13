@@ -8,7 +8,7 @@
 
   <input type="hidden" name="post[recipient_id]" value="<%=params['id']%>">
 
-  <select class="tag-dropdown btn dropdown-toggle clearfix btn-primary" name="tags[]">
+  <select class="tag-dropdown" name="tags[]" multiple="multiple">
     <option>Select Friend</option>  
     <%current_user.outbound_followers.each do |outbound_follower| %>
       <option value="<%=outbound_follower.id%>"><%=outbound_follower.username%></option>

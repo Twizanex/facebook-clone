@@ -37,4 +37,5 @@ class Post < ActiveRecord::Base
   #     errors[:body] << "Need either post body or photo"
   #   end
   # end
+
 end

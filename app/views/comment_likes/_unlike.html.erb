@@ -1,15 +1,14 @@
-<span class="comment-like-count-<%=comment.id%>" data-like-count="<%=comment.comment_likes.count%>">
-  <%if comment.comment_likes.count > 0 %>
-      ☝ <%= comment.comment_likes.count %>
-  <%end %>
-</span>
-
+<br>
 
 <button 
-  class="comment-unlike-button btn" 
+  class="like-button btn" 
   post-id="<%=post.id%>" 
-  comment-like-id="<%=comment_like.id%>" 
-  comment-id = "<%=comment.id%>" 
   user-id="<%=current_user.id%>">
-  Unlike
+  Like
 </button>
+
+<span class="comment-like-count-<%=comment.id%>" data-like-count="<%=comment.comment_likes.count%>">
+  <%if comment.comment_likes.count > 0 %>
+      ☝ <%= comment.comment_likes.count %> Likes
+  <%end %>
+</span>

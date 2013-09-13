@@ -26,9 +26,9 @@ class PostsController < ApplicationController
           end
         end
       end
-    rescue 
+    rescue => e
       flash.now[:errors] ||= []
-      flash.now[:errors] += record.errors.full_messages
+      flash.now[:errors] << @post
     else
       redirect_to :back
     end

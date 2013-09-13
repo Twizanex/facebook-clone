@@ -1,9 +1,4 @@
-<span class="like-count-<%=post.id%>" data-like-count="<%=post.likes.count%>">
-<% if post.likes.count > 0 %>
-  ☝ <%= post.likes.count %>
-<% end %>
-</span>
-
+<br>
 
 <button 
   class="like-button btn" 
@@ -11,4 +6,10 @@
   user-id="<%=current_user.id%>">
   Like
 </button>
+
+<span class="like-count-<%=post.id%>" data-like-count="<%=post.likes.count%>">
+<% if post.likes.count > 0 %>
+  ☝ <%= post.likes.count %> Likes
+<% end %>
+</span>
 

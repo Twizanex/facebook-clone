@@ -6,7 +6,7 @@
   <%=render "posts/new_post", :user_id => current_user.id %>
 </div>
 
-<div class="posts-all">
+<div style="font-size: 17px; "class="posts-all">
   <%@posts.reverse.each do |post|%>
     <div class="post-indiv">
       <%=render "posts/post", :post => post, :user_id => current_user.id%>

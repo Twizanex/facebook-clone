@@ -1,0 +1,22 @@
+<h1>New Group: </h1>
+
+<center>
+    <div class="new-group">
+      <form action="<%=user_groups_url(current_user.id)%>" method="post">
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+        <label for="group_name">Name:</label>
+        <br>
+        <input class= "new-group-field" type="textbox" name="group[name]" id="group_name">
+
+        <br>
+        <br>
+
+        <br>
+        <textarea name="group[description]" id="group-description" placeholder="Type description here..."></textarea>
+       <br>
+       <input class="button" type="submit" value="Create Group!">
+
+      </form>
+    </div>
+</center>
