@@ -1,0 +1,7 @@
+<span class="chat-bar">
+  <%current_user.outbound_followers.each do |outbound_follower|%>
+    <%=link_to outbound_follower.username, user_url(outbound_follower.id)%>
+    <br>
+    <br>
+  <%end%>
+</span>

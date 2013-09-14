@@ -26,7 +26,7 @@
 
 <br>
 <% if (post.photo_file_size) %>
-  <%= image_tag post.photo.url(:big) %>
+  <a data-lightbox="image-<%=post.id%>" href="<%=post.photo%>"> <%= image_tag post.photo.url(:big)%> </a>
 <% end %>
 <br>
 

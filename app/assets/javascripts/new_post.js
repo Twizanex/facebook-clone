@@ -3,17 +3,18 @@
 //     function (event) {
 //       event.preventDefault();
 //       var formData = $(this.form).serializeJSON().post;
-//       var userId = $(this.form).attr("user-id")
-//       debugger
+//       var userId = $(this.form).attr("current-user-id")
+//       debugger 
+      
 
-//       $.ajax({
-//         url: "/users/" + userId + "/posts",
-//         type: "POST",
-//         dataType: "json",
-//         success: function() {
-//           $(".posts-all").prepend()
-//         }
-//       })
+//       // $.ajax({
+//       //   url: "/users/" + userId + "/posts",
+//       //   type: "POST",
+//       //   dataType: "json",
+//       //   success: function() {
+//       //     $(".posts-all").prepend()
+//       //   }
+//       // })
 
 
 //     });

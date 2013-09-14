@@ -8,12 +8,16 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require_tree .
+ *= require_self
  */
 
 html {
   font-family: "Verdana"  
+}
+
+.login-field {
+  width: 150px;
 }
 
 .navbar a{
@@ -50,6 +54,15 @@ a:hover {
 
 .sidebar {
   float:left;
+  border-style: solid;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 150px;
+  display: inline;
+}
+
+.chat-bar {
+  float:right;
   border-style: solid;
   border-radius: 10px;
   font-size: 16px;

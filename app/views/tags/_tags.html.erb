@@ -1,6 +1,7 @@
-<% if post.tags.length > 0%>
+<% if post.tags.length > 0 %>
   <span style="color:gray;font-size:16px;" >with<span>
   <span class="tags" style="font-size:16px;">
+
     <%num_tags = post.tags.length%>
     <%post.tags.each_with_index do |tag, i| %>
       <%if num_tags == (i - 1)%>
